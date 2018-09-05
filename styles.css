@@ -1,0 +1,49 @@
+.container {
+  position: absolute;
+  min-width: 220px;
+  height: 200px;
+  background-color: aqua;
+  color: #000000;
+  border: 1px solid #000000;
+  text-align: left;
+  resize: both;
+  overflow: auto;
+}
+.container-header {
+  background-color: burlywood;
+  padding: 5px;
+  cursor: move;
+  line-height: 30px;
+  padding-right: 10px;
+}
+.note-header {
+  text-align: center;
+}
+.close-note {
+  float: right;
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  color: #111000;
+  background-color: wheat;
+  border-radius: 2px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 20px;
+}
+.note-header,
+.note-body {
+  background-color: transparent;
+  border: none;
+  margin-top: 5px;
+  outline: none;
+}
+.note-body {
+    box-sizing:border-box;
+    display:block;
+    width:100%;
+    height: auto;
+    overflow: hidden;
+    resize: none;
+}
