@@ -1,6 +1,5 @@
 document.querySelector('textarea').addEventListener('keydown', autosize);
-
-
+// -------FUNCTION TO FIT INPUT TEXTAREA TO AMOUNT OF INPUTTED TEXT------
 function autosize(){
   let el = this;
   setTimeout(function(){
@@ -8,7 +7,7 @@ function autosize(){
     el.style.cssText = 'height:' + el.scrollHeight + 'px';
   },0);
 }
-
+// --------FUCNTION TO DRAG NOTE onmousedown-onmouseup-------
 let note = document.querySelector('.container');
 note.onmousedown = function(event) {
 
@@ -41,3 +40,11 @@ note.onmousedown = function(event) {
 note.ondragstart = function() {
   return false;
 };
+// --------FUNCTION TO REMOVE NOTE ELEMENT--------
+let closeButton = document.querySelector('.close-note');
+closeButton.addEventListener('click', closeNote);
+
+function closeNote(event) {
+  document.body.removeChild(note);
+}
+
