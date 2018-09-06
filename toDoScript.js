@@ -1,5 +1,6 @@
-// document.querySelector('textarea').addEventListener('keydown', autosize);
-document.getElementById('on-button-container').addEventListener('click', createDom);
+document.getElementById('on-button-container').addEventListener('click', function() {
+  createDom("","");
+});
 
 
 // -------FUNCTION TO FIT INPUT TEXTAREA TO AMOUNT OF INPUTTED TEXT------
@@ -10,6 +11,41 @@ function autosize(){
     el.style.cssText = 'height:' + el.scrollHeight + 'px';
   },0);
 }
+
+// --------FUNCTION TO REMOVE NOTE ELEMENT--------
+
+function closeNote(event) {
+  this.parentNode.parentNode.remove();
+}
+
+// ---------FUNCTION TO CREATE NOTE ELEMENT---------
+
+function createDom(noteName, noteContents) {
+  let allNotesContainer = document.getElementById('all-notes-container');
+  let note = document.createElement('div');
+  note.setAttribute('class', 'container');
+
+  note.innerHTML = `<div class="container-header">
+                  <input class="note-header" type="text" placeholder="Name your note" value="${noteName}">
+                  <div class="close-note"> X </div>
+                </div>
+                <div class="container-body">
+                  <textarea class="note-body" type="text" placeholder="Your note is here:">${noteContents}</textarea>
+                </div>`;
+  
+  allNotesContainer.appendChild(note);
+
+  let noteClosers = document.getElementsByClassName("close-note");
+  for(let i = 0; i < noteClosers.length; i++) {
+    noteClosers[i].addEventListener('click', closeNote);
+  }
+  let noteAreas = document.getElementsByTagName('textarea');
+  for(let i = 0; i < noteAreas.length; i++) {
+    noteAreas[i].addEventListener('keydown', autosize);
+  }
+  // note.getElementsByTagName('textarea').addEventListener('keydown', autosize);
+}
+
 // --------FUCNTION TO DRAG NOTE onmousedown-onmouseup-------
 // let note = document.querySelector('.container');
 // note.onmousedown = function(event) {
@@ -43,26 +79,4 @@ function autosize(){
 // note.ondragstart = function() {
 //   return false;
 // };
-// // --------FUNCTION TO REMOVE NOTE ELEMENT--------
-// let closeButton = document.querySelector('.close-note');
-// closeButton.addEventListener('click', closeNote);
-
-// function closeNote(event) {
-//   document.body.removeChild(note);
-// }
-
-// ---------FUNCTION TO CREATE NOTE ELEMENT---------
-
-let string = '<div class="container"><div class="container-header">' +
-        '<input class="note-header" type="text" placeholder="Name your note">' +
-        '<div class="close-note"> X </div> </div><div class="container-body">' +
-        '<textarea class="note-body" type="text" placeholder="Your note is here:"></textarea></div></div>';
-
-function createDom() {
-  let parser = new DOMParser();
-  let html = parser.parseFromString(string, 'text/html');
-  document.body.appendChild(html.body.firstChild); 
-
-  
-}     
    
