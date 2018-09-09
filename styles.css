@@ -2,9 +2,19 @@ body {
   text-align: center;
 }
 
+#header {
+  background-color: cornflowerblue;
+  padding: 20px;
+  text-align: center;
+}
+header {
+  font-size: 40px;
+  color: white;
+}
+
 .container {
   min-width: 220px;
-  max-width: 220px;
+  /* max-width: 220px; */
   height: 200px;
   background-color: aqua;
   color: #000000;
@@ -54,7 +64,7 @@ body {
     resize: none;
 }
 
-#on-button-container {
+.on-button-container {
   width: 200px;
   height: 30px;
   cursor: pointer;
@@ -65,4 +75,5 @@ body {
   border: none;
   border-radius: 3px;
   display: inline-block;
+  margin-top: 20px;
 }
