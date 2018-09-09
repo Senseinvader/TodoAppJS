@@ -16,8 +16,8 @@ function autosize(){
 // ---------FUNCTION TO CREATE NOTE ELEMENT---------
 
 function createDom(noteName, noteContent) {
-  let allNotesContainer = document.getElementById('all-notes-container');
-  let note = document.createElement('div');
+  const allNotesContainer = document.getElementById('all-notes-container');
+  const note = document.createElement('div');
   note.setAttribute('class', 'container');
 
   note.innerHTML = `<div class="container-header">
@@ -36,16 +36,14 @@ function createDom(noteName, noteContent) {
   }
   const noteAreas = document.getElementsByTagName('textarea');
   for(let i = 0; i < noteAreas.length; i++) {
-    noteAreas[i].addEventListener('keydown', autosize);
-
-    this.addEventListener('beforeunload', saveNotes);
+    noteAreas[i].addEventListener('keydown', autosize);  
   }
 
   // const closers = Array.from(document.getElementsByClassName('close-note'));
   // closers.forEach(element => {
   //   addEventListener('click', closeNote);
   // });
-
+  this.addEventListener('beforeunload', saveNotes);
 }
 
 function saveNotes() {

@@ -14,11 +14,10 @@ header {
 
 .container {
   min-width: 220px;
-  /* max-width: 220px; */
   height: 200px;
   background-color: aqua;
   color: #000000;
-  border: 1px solid #000000;
+  border: 1px solid grey;
   text-align: left;
   resize: both;
   overflow: auto;
@@ -44,9 +43,11 @@ header {
   color: #111000;
   background-color: wheat;
   border-radius: 2px;
-  border: 1px solid black;
+  border: 1px solid gray;
   text-align: center;
-  line-height: 20px;
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 30px;
 }
 .note-header,
 .note-body {
