@@ -7,8 +7,8 @@ window.onload = () => loadNotes();
 // -------FUNCTION TO FIT INPUT TEXTAREA TO AMOUNT OF INPUTTED TEXT------
 
 function autosize(){
-    el.style.cssText = 'height:auto; padding-top:5';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    this.style.cssText = 'height:auto; padding-top:5';
+    this.style.cssText = 'height:' + this.scrollHeight + 'px';
 }
 
 // ---------FUNCTION TO CREATE NOTE ELEMENT---------
