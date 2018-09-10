@@ -5,12 +5,10 @@ window.onload = () => loadNotes();
 
 
 // -------FUNCTION TO FIT INPUT TEXTAREA TO AMOUNT OF INPUTTED TEXT------
+
 function autosize(){
-  const el = this;
-  setTimeout(function(){
     el.style.cssText = 'height:auto; padding-top:5';
     el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
 }
 
 // ---------FUNCTION TO CREATE NOTE ELEMENT---------
@@ -30,19 +28,15 @@ function createDom(noteName, noteContent) {
   
   allNotesContainer.appendChild(note);
 
-  const noteClosers = document.getElementsByClassName("close-note");
-  for(let i = 0; i < noteClosers.length; i++) {
-    noteClosers[i].addEventListener('click', closeNote);
-  }
   const noteAreas = document.getElementsByTagName('textarea');
   for(let i = 0; i < noteAreas.length; i++) {
     noteAreas[i].addEventListener('keydown', autosize);  
   }
 
-  // const closers = Array.from(document.getElementsByClassName('close-note'));
-  // closers.forEach(element => {
-  //   addEventListener('click', closeNote);
-  // });
+  const noteClosers = Array.from(document.getElementsByClassName('close-note'));
+  noteClosers.forEach(element => {
+    element.addEventListener('click', closeNote);
+  });
   this.addEventListener('beforeunload', saveNotes);
 }
 
